@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import App from "../App";
+import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
+    const navigate = useNavigate();
+
     const [msg, setMsg] = useState(null)
     const [formData, setFormData] = useState({
         task: "",
-        owner: "",
+        owner: sessionStorage.getItem("user"),
         dueDate: "",
+    })
+
+    useEffect(() => {
+        if (!sessionStorage.getItem("user"))
+            navigate("/");
     })
 
     const addATask = (e) => {
@@ -26,23 +34,24 @@ const AddTask = () => {
         fetch(req)
             .then(res => res.json())
             .then(data => {
-                
+
                 //console.log(data)
                 setMsg(data)
 
             })
             .catch(err => console.error(err))
 
+        navigate("/view")
     }
 
 
     const handleChange = (e) => {
         // console.warn(e.target.id,e.target.value)
-        if (e.target.id == "dueDate") 
-            if (isNaN(e.target.value)){
+        if (e.target.id == "dueDate")
+            if (isNaN(e.target.value)) {
                 alert("Please enter a date")
-            return
-        }
+                return
+            }
 
         setFormData({
             ...formData,

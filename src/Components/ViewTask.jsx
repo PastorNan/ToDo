@@ -18,10 +18,9 @@ const ViewTask = ({task}) => {
             </a>
             <RemoveTask id={task._id}/>
             <Link
-            to={"/update"+ task._id} 
+            to={"/update/"+ task._id} 
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-            >
-                Update</Link>
+            >Update</Link>
             
         </div>
 

@@ -11,7 +11,7 @@ const UpdateTask = () => {
     })
     useEffect(() => {
         const req = new Request(
-            'http://localhost:3000/task/'+ id, {
+            'http://localhost:3000/'+ id, {
             headers: {
                 "content-type": "application/json"
             }
@@ -31,9 +31,9 @@ const UpdateTask = () => {
     const handleUpdateTask = (e) => {
         e.preventDefault()
 
-        //console.debug(formData)
+        console.debug(formData)
         const req = new Request(
-            'http://localhost:3000/update/task/' + id, {
+            'http://localhost:3000/update/' + id, {
             method: "Put",
             headers: {
                 "content-type": "application/json"
