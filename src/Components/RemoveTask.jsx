@@ -21,6 +21,8 @@ const RemoveTask = ({id}) => {
             })
             .catch(err => console.error(err))
 
+            location.reload()
+
    
     }
   

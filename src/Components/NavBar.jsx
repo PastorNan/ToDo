@@ -3,14 +3,19 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
+  const handleLogout= ()=>{
+    sessionStorage.clear()
+  }
+  
+
   return (
     <>
     
 
-<nav className="bg-white border-gray-200 dark:bg-gray-900">
+<nav className="bg-white border-gray-200 dark:bg-black">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <Link to="http://localhost:5173/" className="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://i.pinimg.com/736x/56/7b/0e/567b0e4aedd0c5e5173899a1050b0020.jpg" className="h-8" alt="Flowbite Logo" />
+        <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/tokyo-ghoul-tiara-wisaya.jpg" className="h-8" alt="Flowbite Logo" />
         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ToDoList</span>
     </Link>
     <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -22,7 +27,7 @@ const NavBar = () => {
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <Link to="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page"onClick={sessionStorage.clear}>Logout</Link>
+          <Link to="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page"onClick={handleLogout}>Logout</Link>
         </li>
         <li>
           <Link to="/view" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ShowAll</Link> 

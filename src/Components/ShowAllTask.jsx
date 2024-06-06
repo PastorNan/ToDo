@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react"
 import ViewTask from "./ViewTask"
+import { useNavigate } from "react-router-dom";
+
 
 const ShowAllTask = () => {
     const [msg, setMsg] = useState(null)
     const [allTasks, setAllTasks] = useState([])
+    
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!sessionStorage.getItem("user"))
+            navigate("/")
+    })
 
     useEffect(() => {
         const req = new Request(
@@ -28,7 +37,7 @@ const ShowAllTask = () => {
 
     return (
         <>
-            <p className="text-3xl text-slate-600">Tasks found: {allTasks.length}</p>
+            <p className="text-3xl text-white bg-black">Tasks found: {allTasks.length}</p>
             <div className="grid grid-cols-4">
             {allTasks.map(task => {
                 return(
